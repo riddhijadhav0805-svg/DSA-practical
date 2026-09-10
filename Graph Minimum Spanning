@@ -1,13 +1,4 @@
-Practical : 5
-Name: Manjusha Raskar Roll No. : 01 Class: SE
-Problem Statement: Graph: Minimum Spanning Tree -- CO1, CO2, CO3
-Represent a graph of your college campus using adjacency list /adjacency matrix. Nodes should
-represent the various departments/institutes and links should represent the distance between
-them.
-Find minimum spanning tree :
-a. Using Kruskal’s algorithm.
-b. Using Prim’s algorithm.
-Code
+
 INF = 999
 # Adjacency Matrix
 graph = [
