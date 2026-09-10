@@ -1,0 +1,70 @@
+#include <iostream>
+using namespace std;
+struct Node {
+ int data;
+ Node *next;
+};
+Node *front = NULL, *rear = NULL;
+// isEmpty
+bool isEmpty() {
+ return front == NULL;
+}
+// isFull
+bool isFull() {
+ Node *p = new(nothrow) Node;
+ if (p == NULL) return true;
+ delete p;
+ return false;
+}
+// Enqueue
+void enqueue(int x) {
+ Node *p = new Node;
+p->data = x;
+ if (isEmpty())
+ front = rear = p;
+ else {
+ rear->next = p;
+ rear = p;
+ }
+ rear->next = front;
+}
+// Dequeue
+void dequeue() {
+ if (isEmpty()) {
+ cout << "Empty\n";
+ return;
+ }
+ Node *p = front;
+ if (front == rear)
+ front = rear = NULL;
+ else {
+ front = front->next;
+ rear->next = front;
+ }
+ delete p;
+}
+// Display
+ void display() {
+ if (isEmpty()) {
+ cout << "Empty\n";
+ return;
+ }
+ Node *p = front;
+ do {
+ cout << p->data << " ";
+ p = p->next;
+ } while (p != front);
+ cout << endl;
+}
+int main() {
+ enqueue(10);
+ enqueue(20);
+ enqueue(30);
+ display();
+ dequeue();
+ display();
+ return 0;
+}
+Output:-
+10 20 30
+20 30
